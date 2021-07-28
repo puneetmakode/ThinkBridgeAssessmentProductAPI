@@ -1,0 +1,16 @@
+DELETE
+https://localhost:44366/api/Product/1
+
+BODY(JSON):
+
+RESPONSE:
+true
+--------------------------------------------
+// CASE WHEN ALREADY DELETED Id is PASSED
+DELETE
+https://localhost:44366/api/Product/1
+
+BODY(JSON):
+
+RESPONSE:
+false

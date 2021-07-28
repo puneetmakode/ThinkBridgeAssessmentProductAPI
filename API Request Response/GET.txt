@@ -1,0 +1,69 @@
+GET
+https://localhost:44366/api/Product
+
+BODY(JSON):
+
+
+RESPONSE:
+[
+  {
+    "Id": 1,
+    "Name": "Product Test Update One",
+    "CategoryId": 2,
+    "Description": "Product TestOne Description",
+    "BaseWeight": 500,
+    "MeasurementId": 1,
+    "IsAvailable": true,
+    "AmountPerUnit": 250,
+    "IsActive": true,
+    "CreatedDate": "2021-07-27T21:04:07.85",
+    "ModifiedDate": "2021-07-28T08:09:36.603",
+    "CreatedBy": "ADMIN",
+    "ModifiedBy": "Admin"
+  },
+  {
+    "Id": 4,
+    "Name": "Product XYZ Two Two Two",
+    "CategoryId": 2,
+    "Description": "Product Two Description",
+    "BaseWeight": 1000,
+    "MeasurementId": 1,
+    "IsAvailable": true,
+    "AmountPerUnit": 100,
+    "IsActive": true,
+    "CreatedDate": "2021-07-27T21:08:28.667",
+    "ModifiedDate": "2021-07-27T21:08:28.82",
+    "CreatedBy": "ADMIN",
+    "ModifiedBy": null
+  },
+  {
+    "Id": 5,
+    "Name": "Product XYZ New One Two",
+    "CategoryId": 2,
+    "Description": "Product One Two Description",
+    "BaseWeight": 500,
+    "MeasurementId": 1,
+    "IsAvailable": true,
+    "AmountPerUnit": 250,
+    "IsActive": true,
+    "CreatedDate": "2021-07-28T08:31:53.41",
+    "ModifiedDate": "2021-07-28T08:31:53.41",
+    "CreatedBy": "ADMIN",
+    "ModifiedBy": null
+  },
+  {
+    "Id": 6,
+    "Name": "TShirts XYZ New One Two",
+    "CategoryId": 1,
+    "Description": "TShirts One Two Description",
+    "BaseWeight": 250,
+    "MeasurementId": 2,
+    "IsAvailable": true,
+    "AmountPerUnit": 300,
+    "IsActive": true,
+    "CreatedDate": "2021-07-28T08:32:31.25",
+    "ModifiedDate": "2021-07-28T08:32:31.25",
+    "CreatedBy": "ADMIN",
+    "ModifiedBy": null
+  }
+]

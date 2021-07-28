@@ -38,8 +38,8 @@
     <Property Name="IsAvailable" Type="bit" />
     <Property Name="AmountPerUnit" Type="bigint" Nullable="false" />
     <Property Name="IsActive" Type="bit" Nullable="false" />
-    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
-    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
     <Property Name="CreatedBy" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="ModifiedBy" Type="nvarchar" MaxLength="100" />
   </EntityType>

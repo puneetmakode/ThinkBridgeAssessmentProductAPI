@@ -21,10 +21,10 @@ namespace ProductAdminAPI.Controllers
             _iProductService = new ProductService(_iProductRepository);
         }
 
-        // GET api/values
+        // GET api/product
         public async Task<HttpResponseMessage> Get()
         {
-            List<Models.Product> results = new List<Models.Product>();
+            List<Models.ProductModel> results = new List<Models.ProductModel>();
             try
             {
                 results = await _iProductService.GetAllProducts();
@@ -37,10 +37,10 @@ namespace ProductAdminAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, results);
         }
 
-        // GET api/values/5
+        // GET api/product/5
         public async Task<HttpResponseMessage> Get(int id)
         {
-            List<Models.Product> results = new List<Models.Product>();
+            List<Models.ProductModel> results = new List<Models.ProductModel>();
             try
             {
                 results = await _iProductService.GetProduct(id);
@@ -53,39 +53,49 @@ namespace ProductAdminAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, results);
         }
 
-        // POST api/values
-        public async Task<HttpResponseMessage> Post([FromBody] Models.Product product)
+        // POST api/product
+        public async Task<HttpResponseMessage> Post([FromBody] Models.ProductModel product)
         {
-            bool flg;
-            try
+            if (ModelState.IsValid)
             {
-                flg = await _iProductService.SaveProduct(product);
+                bool flg;
+                try
+                {
+                    flg = await _iProductService.SaveProduct(product);
+                }
+                catch (Exception ex)
+                {
+                    HttpError myCustomError = new HttpError(ex.Message) { };
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, myCustomError);
+                }
+                return Request.CreateResponse(HttpStatusCode.OK, flg);
             }
-            catch (Exception ex)
-            {
-                HttpError myCustomError = new HttpError(ex.Message) { };
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, myCustomError);
-            }
-            return Request.CreateResponse(HttpStatusCode.OK, flg);
+            else
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
         }
 
-        // PUT api/values/5
-        public async Task<HttpResponseMessage> Put([FromBody] Models.Product product)
+        // PUT api/product/
+        public async Task<HttpResponseMessage> Put([FromBody] Models.ProductModel product)
         {
-            bool flg;
-            try
+            if (ModelState.IsValid)
             {
-                flg = await _iProductService.UpdateProduct(product);
+                bool flg;
+                try
+                {
+                    flg = await _iProductService.UpdateProduct(product);
+                }
+                catch (Exception ex)
+                {
+                    HttpError myCustomError = new HttpError(ex.Message) { };
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, myCustomError);
+                }
+                return Request.CreateResponse(HttpStatusCode.OK, flg);
             }
-            catch (Exception ex)
-            {
-                HttpError myCustomError = new HttpError(ex.Message) { };
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, myCustomError);
-            }
-            return Request.CreateResponse(HttpStatusCode.OK, flg);
+            else
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
         }
 
-        // DELETE api/values/5
+        // DELETE api/product/5
         public async Task<HttpResponseMessage> Delete(int id)
         {
             bool flg;

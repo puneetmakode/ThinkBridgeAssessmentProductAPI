@@ -1,0 +1,21 @@
+GET
+https://localhost:44366/api/Product/4
+
+RESPONSE:
+[
+  {
+    "Id": 4,
+    "Name": "Product XYZ Two Two Two",
+    "CategoryId": 2,
+    "Description": "Product Two Description",
+    "BaseWeight": 1000,
+    "MeasurementId": 1,
+    "IsAvailable": true,
+    "AmountPerUnit": 100,
+    "IsActive": true,
+    "CreatedDate": "2021-07-27T21:08:28.667",
+    "ModifiedDate": "2021-07-27T21:08:28.82",
+    "CreatedBy": "ADMIN",
+    "ModifiedBy": null
+  }
+]

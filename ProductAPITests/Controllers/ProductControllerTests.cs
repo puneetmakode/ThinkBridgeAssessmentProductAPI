@@ -32,14 +32,13 @@ namespace ProductAdminAPI.Controllers.Tests
         public void PostTest()
         {
             ProductController obj = new ProductController();
-            Product prods = new Product();
+            ProductModel prods = new ProductModel();
             prods.AmountPerUnit = 200;
             prods.BaseWeight = 1000;
             prods.CategoryId = 1;
             prods.CreatedBy = "ProductAdmin";
             prods.CreatedDate = DateTime.Now;
             prods.Description = "Product Description";
-            //prods.Id;
             prods.IsActive = true;
             prods.IsAvailable = true;
             prods.MeasurementId = 1;
@@ -55,7 +54,7 @@ namespace ProductAdminAPI.Controllers.Tests
         public void PutTest()
         {
             ProductController obj = new ProductController();
-            Product prods = new Product();
+            ProductModel prods = new ProductModel();
             prods.AmountPerUnit = 200;
             prods.BaseWeight = 1000;
             prods.CategoryId = 1;

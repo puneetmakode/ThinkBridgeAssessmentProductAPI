@@ -19,10 +19,10 @@ namespace ProductAdminAPI.Repository
         {
             try
             {
-                var cards = await db.ProductsDB.ToListAsync();
-                return cards;
+                var prods = await db.Product.ToListAsync<Repository.Product>();
+                return prods;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -31,8 +31,8 @@ namespace ProductAdminAPI.Repository
         {
             try
             {
-                var cards = await db.ProductsDB.Where(c => c.Id == id).ToListAsync();
-                return cards;
+                var prod = await db.Product.Where(c => c.Id == id).ToListAsync();
+                return prod;
             }
             catch (Exception ex)
             {
@@ -44,7 +44,16 @@ namespace ProductAdminAPI.Repository
             bool result = false;
             try
             {
-                db.ProductsDB.Add(product);
+                var prods = await db.Product.ToListAsync();
+                foreach (var itm in prods)
+                {
+                    if (itm.Name.ToLower() == product.Name.ToLower() && itm.Description.ToLower() == product.Description.ToLower() &&
+                        itm.CategoryId == product.CategoryId)
+                    {
+                        throw new Exception("Product already Exists");
+                    }
+                }
+                db.Product.Add(product);
                 int res = await db.SaveChangesAsync();
                 if (res != 0)
                     result = true;
@@ -63,7 +72,7 @@ namespace ProductAdminAPI.Repository
             bool result = false;
             try
             {
-                var res = db.ProductsDB.SingleOrDefault(b => b.Id == product.Id);
+                var res = db.Product.SingleOrDefault(b => b.Id == product.Id);
                 if (res != null)
                 {
                     res.IsActive = product.IsActive;
@@ -75,8 +84,6 @@ namespace ProductAdminAPI.Repository
                     res.AmountPerUnit = product.AmountPerUnit;
                     res.BaseWeight = product.BaseWeight;
                     res.CategoryId = product.CategoryId;
-                    res.CreatedBy = product.CreatedBy;
-                    res.CreatedDate = product.CreatedDate;
                     res.Description = product.Description;
                     int isMod = await db.SaveChangesAsync();
                     if (isMod != 0)
@@ -97,10 +104,10 @@ namespace ProductAdminAPI.Repository
             bool result = false;
             try
             {
-                var res = db.ProductsDB.SingleOrDefault(b => b.Id == Id);
+                var res = db.Product.SingleOrDefault(b => b.Id == Id);
                 if (res != null)
                 {
-                    db.ProductsDB.Remove(res);
+                    db.Product.Remove(res);
                     int isMod = await db.SaveChangesAsync();
                     if (isMod != 0)
                         result = true;

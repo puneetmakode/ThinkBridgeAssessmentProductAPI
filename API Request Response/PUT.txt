@@ -1,0 +1,15 @@
+PUT
+https://localhost:44366/api/Product/
+
+BODY(JSON):
+{
+	"Id":1,
+	"Name":"Product Test Update One",
+	"CategoryId":2,
+	"Description":"Product TestOne Description",
+	"BaseWeight":500,
+	"MeasurementId":1,
+	"AmountPerUnit":250,
+	"IsAvailable":1,
+	"IsActive":1
+}

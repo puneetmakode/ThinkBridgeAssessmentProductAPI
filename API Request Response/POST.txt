@@ -1,0 +1,43 @@
+POST
+https://localhost:44366/api/Product
+
+BODY(JSON):
+{
+	"Name":"Product XYZ Two Two Two",
+	"CategoryId":2,
+	"Description":"Product Two Description",
+	"BaseWeight":1000,
+	"MeasurementId":1,
+	"AmountPerUnit":100,
+	"CreatedBy": "ADMIN",
+	"IsAvailable":1,
+	"IsActive":1
+}
+
+RESPONSE:
+true
+
+----------------------------------------------------------
+
+POST
+https://localhost:44366/api/Product/
+
+BODY(JSON):
+{
+	"Name":"Product XYZ Two Two Two",
+	"CategoryId":2,
+	"Description":"Product Two Description",
+	"BaseWeight":500,
+	"MeasurementId":1,
+	"AmountPerUnit":250,
+	"CreatedBy": "ADMIN",
+	"IsAvailable":1,
+	"IsActive":1
+}
+
+RESPONSE:
+{
+  "Message": "Product already Exists"
+}
+
+

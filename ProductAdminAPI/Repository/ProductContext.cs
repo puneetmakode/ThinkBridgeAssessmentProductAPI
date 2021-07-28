@@ -7,8 +7,8 @@ namespace ProductAdminAPI.Repository
         public ProductContext() : base("ProductDBEntities")
         {
         }
-        public DbSet<Product> ProductsDB { get; set; }
-        public DbSet<Measurement> MeasurementDB { get; set; }
-        public DbSet<Category> CategoryDB { get; set; }
+        public DbSet<Repository.Product> Product { get; set; }
+        public DbSet<Repository.Measurement> Measurement { get; set; }
+        public DbSet<Repository.Category> Category { get; set; }
     }
 }

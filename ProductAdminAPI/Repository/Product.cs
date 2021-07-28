@@ -23,8 +23,8 @@ namespace ProductAdminAPI.Repository
         public Nullable<bool> IsAvailable { get; set; }
         public long AmountPerUnit { get; set; }
         public bool IsActive { get; set; }
-        public System.DateTime CreatedDate { get; set; }
-        public System.DateTime ModifiedDate { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
+        public Nullable<System.DateTime> ModifiedDate { get; set; }
         public string CreatedBy { get; set; }
         public string ModifiedBy { get; set; }
     }

@@ -2,7 +2,7 @@
 
 namespace ProductAdminAPI.Models
 {
-    public class Measurement
+    public class MeasurementModel
     {
         public int Id { get; set; }
         public string UnitName { get; set; }

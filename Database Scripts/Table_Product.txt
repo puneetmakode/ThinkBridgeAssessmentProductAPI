@@ -8,7 +8,7 @@ MeasurementId INT NULL,
 IsAvailable BIT NULL,
 AmountPerUnit BIGINT NOT NULL,  
 IsActive BIT NOT NULL,
-CreatedDate DATETIME NOT NULL, ModifiedDate DATETIME NOT NULL, CreatedBy NVARCHAR(100) NOT NULL, 
+CreatedDate DATETIME NULL, ModifiedDate DATETIME NULL, CreatedBy NVARCHAR(100) NOT NULL, 
 ModifiedBy NVARCHAR(100) NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
